@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -28,16 +29,25 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+
+    [self fetchTweets];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchTweets) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+}
+
+- (void)fetchTweets {
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.arrayOfTweets = tweets;
-            [self.tableView reloadData];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -68,9 +78,8 @@
     
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
-//    NSData *urlData = [NSData dataWithContentsOfURL:url];
     [cell.profileImageView setImageWithURL:url];
-    
+
     cell.authorUsernameLabel.text = tweet.user.name;
     cell.authorScreenNameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
     cell.createdAtLabel.text = tweet.createdAtString;
