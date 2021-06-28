@@ -10,8 +10,14 @@
 #import "APIManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "TweetCell.h"
+#import "Tweet.h"
+#import "UIImageView+AFNetworking.h"
 
-@interface TimelineViewController ()
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) NSMutableArray *arrayOfTweets;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -20,11 +26,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.arrayOfTweets = tweets;
+            [self.tableView reloadData];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
@@ -43,6 +53,32 @@
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     appDelegate.window.rootViewController = loginViewController;
     [[APIManager shared] logout];
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.arrayOfTweets.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    
+    Tweet *tweet = self.arrayOfTweets[indexPath.row];
+    
+    NSString *URLString = tweet.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+//    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    [cell.profileImageView setImageWithURL:url];
+    
+    cell.authorUsernameLabel.text = tweet.user.name;
+    cell.authorScreenNameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
+    cell.createdAtLabel.text = tweet.createdAtString;
+    cell.tweetTextLabel.text = tweet.text;
+    cell.retweetCountLabel.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
+    cell.favoriteCountLabel.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
+    
+    return cell;
 }
 
 /*
