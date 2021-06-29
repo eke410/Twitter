@@ -9,6 +9,7 @@
 #import "TweetCell.h"
 #import "APIManager.h"
 #import "UIImageView+AFNetworking.h"
+#import "DateTools.h"
 
 @implementation TweetCell
 
@@ -84,7 +85,10 @@
 
     self.authorUsernameLabel.text = self.tweet.user.name;
     self.authorScreenNameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
-    self.createdAtLabel.text = self.tweet.createdAtString;
+        
+    NSDate *createdAtDate = [NSDate dateWithString:self.tweet.createdAtString formatString:@"E MMM d HH:mm:ss Z y"];
+    self.createdAtLabel.text = createdAtDate.shortTimeAgoSinceNow;
+    
     self.tweetTextLabel.text = self.tweet.text;
     [self.retweetButton setTitle:[NSString stringWithFormat:@"%i", self.tweet.retweetCount] forState:UIControlStateNormal];
     [self.favoriteButton setTitle:[NSString stringWithFormat:@"%i", self.tweet.favoriteCount] forState:UIControlStateNormal];

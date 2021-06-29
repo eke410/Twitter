@@ -14,6 +14,7 @@
 #import "Tweet.h"
 #import "ComposeViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "DateTools.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -84,7 +85,10 @@
 
     cell.authorUsernameLabel.text = tweet.user.name;
     cell.authorScreenNameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
-    cell.createdAtLabel.text = tweet.createdAtString;
+
+    NSDate *createdAtDate = [NSDate dateWithString:tweet.createdAtString formatString:@"E MMM d HH:mm:ss Z y"];
+    cell.createdAtLabel.text = createdAtDate.shortTimeAgoSinceNow;
+
     cell.tweetTextLabel.text = tweet.text;
     [cell.retweetButton setTitle:[NSString stringWithFormat:@"%i", tweet.retweetCount] forState:UIControlStateNormal];
     [cell.favoriteButton setTitle:[NSString stringWithFormat:@"%i", tweet.favoriteCount] forState:UIControlStateNormal];
