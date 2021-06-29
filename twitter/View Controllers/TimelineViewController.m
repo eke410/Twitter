@@ -86,8 +86,8 @@
     cell.authorScreenNameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
     cell.createdAtLabel.text = tweet.createdAtString;
     cell.tweetTextLabel.text = tweet.text;
-    cell.retweetCountLabel.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
-    cell.favoriteCountLabel.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
+    [cell.retweetButton setTitle:[NSString stringWithFormat:@"%i", tweet.retweetCount] forState:UIControlStateNormal];
+    [cell.favoriteButton setTitle:[NSString stringWithFormat:@"%i", tweet.favoriteCount] forState:UIControlStateNormal];
     
     tweet.favorited ? [cell.favoriteButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal] : [cell.favoriteButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
     tweet.retweeted ? [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal] : [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
