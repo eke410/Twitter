@@ -13,6 +13,7 @@
 #import "TweetCell.h"
 #import "Tweet.h"
 #import "ComposeViewController.h"
+#import "TweetDetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "DateTools.h"
 
@@ -111,9 +112,20 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+    
+    if ([sender isKindOfClass:[UIBarButtonItem class]]) {
+        // compose tweet button clicked
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    } else if ([sender isKindOfClass:[UITableViewCell class]]) {
+        // tweet cell clicked
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Tweet *tweet = self.arrayOfTweets[indexPath.row];
+        TweetDetailsViewController *tweetDetailsViewController = [segue destinationViewController];
+        tweetDetailsViewController.tweet = tweet;
+    }
+    
 }
 
 
