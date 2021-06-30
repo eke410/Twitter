@@ -43,8 +43,7 @@
     self.authorUsernameLabel.text = self.tweet.user.name;
     self.authorScreenNameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
 
-    NSDate *createdAtDate = [NSDate dateWithString:self.tweet.createdAtString formatString:@"E MMM d HH:mm:ss Z y"];
-    self.createdAtLabel.text = [createdAtDate formattedDateWithFormat:@"h:mm a ⋅ M/dd/yy"];
+    self.createdAtLabel.text = [self.tweet.createdAtDate formattedDateWithFormat:@"h:mm a ⋅ M/dd/yy"];
 
     self.tweetTextLabel.text = self.tweet.text;
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%i", self.tweet.retweetCount];

@@ -87,8 +87,7 @@
     cell.authorUsernameLabel.text = tweet.user.name;
     cell.authorScreenNameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
 
-    NSDate *createdAtDate = [NSDate dateWithString:tweet.createdAtString formatString:@"E MMM d HH:mm:ss Z y"];
-    cell.timeAgoLabel.text = createdAtDate.shortTimeAgoSinceNow;
+    cell.timeAgoLabel.text = tweet.createdAtDate.shortTimeAgoSinceNow;
 
     cell.tweetTextLabel.text = tweet.text;
     [cell.retweetButton setTitle:[NSString stringWithFormat:@"%i", tweet.retweetCount] forState:UIControlStateNormal];

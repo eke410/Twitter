@@ -8,6 +8,7 @@
 
 #import "Tweet.h"
 #import "User.h"
+#import "DateTools.h"
 
 @implementation Tweet
 
@@ -35,7 +36,7 @@
         NSDictionary *user = dictionary[@"user"];
         self.user = [[User alloc] initWithDictionary:user];
 
-        self.createdAtString = dictionary[@"created_at"];
+        self.createdAtDate = [NSDate dateWithString:dictionary[@"created_at"] formatString:@"E MMM d HH:mm:ss Z y"];
     }
     return self;
 }
