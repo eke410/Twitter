@@ -76,26 +76,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
-    
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     cell.tweet = tweet;
-    
-    NSString *URLString = tweet.user.profilePicture;
-    NSURL *url = [NSURL URLWithString:URLString];
-    [cell.profileImageView setImageWithURL:url];
-
-    cell.authorUsernameLabel.text = tweet.user.name;
-    cell.authorScreenNameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
-
-    cell.timeAgoLabel.text = tweet.createdAtDate.shortTimeAgoSinceNow;
-
-    cell.tweetTextLabel.text = tweet.text;
-    [cell.retweetButton setTitle:[NSString stringWithFormat:@"%i", tweet.retweetCount] forState:UIControlStateNormal];
-    [cell.favoriteButton setTitle:[NSString stringWithFormat:@"%i", tweet.favoriteCount] forState:UIControlStateNormal];
-    
-    tweet.favorited ? [cell.favoriteButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal] : [cell.favoriteButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
-    tweet.retweeted ? [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal] : [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
-    
+    [cell refreshData];
     return cell;
 }
 
