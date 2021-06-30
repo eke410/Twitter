@@ -7,8 +7,21 @@
 //
 
 #import "TweetDetailsViewController.h"
+#import "Tweet.h"
+#import "DateTools.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TweetDetailsViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *authorUsernameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *authorScreenNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
 @end
 
@@ -17,10 +30,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // TODO: make sure I have all necessary labels
-    // TODO: set up IBOutlets, give them values from self.tweet
+    if (self.tweet) {
+        [self refreshData];
+    }
 }
+
+- (void)refreshData {
+    NSString *URLString = self.tweet.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    [self.profileImageView setImageWithURL:url];
+    
+    self.authorUsernameLabel.text = self.tweet.user.name;
+    self.authorScreenNameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
+
+    NSDate *createdAtDate = [NSDate dateWithString:self.tweet.createdAtString formatString:@"E MMM d HH:mm:ss Z y"];
+    self.createdAtLabel.text = [createdAtDate formattedDateWithFormat:@"h:mm a ⋅ M/dd/yy"];
+
+    self.tweetTextLabel.text = self.tweet.text;
+    self.retweetCountLabel.text = [NSString stringWithFormat:@"%i", self.tweet.retweetCount];
+    self.favoriteCountLabel.text = [NSString stringWithFormat:@"%i", self.tweet.favoriteCount];
+
+    self.tweet.favorited ? [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal] : [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
+    self.tweet.retweeted ? [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal] : [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
+}
+
+
+
+
 
 /*
 #pragma mark - Navigation
