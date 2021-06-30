@@ -39,6 +39,7 @@
     NSString *URLString = self.tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     [self.profileImageView setImageWithURL:url];
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;;
     
     self.authorUsernameLabel.text = self.tweet.user.name;
     self.authorScreenNameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
