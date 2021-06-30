@@ -87,6 +87,9 @@
     [self.tableView reloadData];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+}
 
 #pragma mark - Navigation
 
