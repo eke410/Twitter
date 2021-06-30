@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *authorUsernameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *authorScreenNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
+@property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
 @property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
@@ -47,7 +47,7 @@
 
     self.createdAtLabel.text = [self.tweet.createdAtDate formattedDateWithFormat:@"h:mm a ⋅ M/dd/yy"];
 
-    self.tweetTextLabel.text = self.tweet.text;
+    self.tweetTextView.text = self.tweet.text;
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%i", self.tweet.retweetCount];
     self.favoriteCountLabel.text = [NSString stringWithFormat:@"%i", self.tweet.favoriteCount];
 
