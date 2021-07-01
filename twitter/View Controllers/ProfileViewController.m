@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "APIManager.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface ProfileViewController ()
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *profileDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followersCountLabel;
+@property (strong, nonatomic) NSArray *tweets;
 
 @end
 
@@ -38,6 +40,15 @@
     
     self.followersCountLabel.text = [NSString stringWithFormat:@"%i", self.user.followersCount];
     self.followingCountLabel.text = [NSString stringWithFormat:@"%i", self.user.followingCount];
+    
+    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+        if (tweets) {
+            NSLog(@"😎😎😎 Successfully loaded %@'s timeline", self.user.name);
+            self.tweets = tweets;
+        } else {
+            NSLog(@"😫😫😫 Error getting %@'s timeline: %@", self.user.name, error.localizedDescription);
+        }
+    }];
 }
 
 /*

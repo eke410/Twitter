@@ -120,5 +120,15 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
+- (void)getUserTimelineWithUserId:(NSString *)user_id completion:(void (^)(NSArray *, NSError *))completion {
+    [self GET:@"1.1/statuses/user_timeline.json"
+        parameters:@{@"user_id": user_id} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
+           NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
+           completion(tweets, nil);
+       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+           completion(nil, error);
+    }];
+}
+
 
 @end

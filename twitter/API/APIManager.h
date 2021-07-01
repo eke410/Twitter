@@ -20,5 +20,6 @@
 - (void)unfavorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 - (void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 - (void)unretweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
+- (void)getUserTimelineWithUserId:(NSString *)user_id completion:(void (^)(NSArray *, NSError *))completion;
 
 @end
