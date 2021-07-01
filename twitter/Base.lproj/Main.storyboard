@@ -394,17 +394,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter text here!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-YD-esf">
-                                <rect key="frame" x="0.0" y="44" width="375" height="271"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Enter text here!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-YD-esf">
+                                <rect key="frame" x="16" y="72" width="343" height="42.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mYK-4J-1v6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OQe-YD-esf" firstAttribute="leading" secondItem="mYK-4J-1v6" secondAttribute="leading" constant="16" id="3jP-yw-2i0"/>
+                            <constraint firstItem="OQe-YD-esf" firstAttribute="trailing" secondItem="mYK-4J-1v6" secondAttribute="trailing" constant="-16" id="7cf-pq-jgl"/>
+                            <constraint firstItem="OQe-YD-esf" firstAttribute="top" secondItem="mYK-4J-1v6" secondAttribute="top" constant="16" id="sMZ-BS-eNM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lLg-8n-ZuQ">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="uxZ-o6-Fc0">
@@ -412,14 +416,24 @@
                                 <action selector="discardTweet:" destination="vsN-42-DMv" id="5ps-Dr-tUd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="gDa-Kj-aTG">
-                            <connections>
-                                <action selector="postTweet:" destination="vsN-42-DMv" id="4mw-EY-41j"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="jFX-1r-7WU">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1uO-OI-FEM">
+                                <rect key="frame" x="187" y="203" width="69" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.032808039337396622" green="0.58660978078842163" blue="0.93692547082901001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="   Tweet   ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="postTweet:" destination="vsN-42-DMv" eventType="touchUpInside" id="rQP-Dj-Zfx"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="textViewLabel" destination="OQe-YD-esf" id="GI6-KU-oNW"/>
+                        <outlet property="tweetButton" destination="1uO-OI-FEM" id="dSc-2c-R8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6p-VC-WP7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

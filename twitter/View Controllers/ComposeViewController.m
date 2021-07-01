@@ -12,6 +12,7 @@
 @interface ComposeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *textViewLabel;
+@property (weak, nonatomic) IBOutlet UIButton *tweetButton;
 
 @end
 
@@ -20,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tweetButton.layer.cornerRadius = 15;
+    
 }
 
 - (IBAction)discardTweet:(id)sender {
