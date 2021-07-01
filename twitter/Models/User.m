@@ -13,6 +13,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
+        self.userID = dictionary[@"id_str"];
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
         self.profileDescription = dictionary[@"description"];

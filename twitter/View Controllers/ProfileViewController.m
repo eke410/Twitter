@@ -46,7 +46,7 @@
     self.followersCountLabel.text = [NSString stringWithFormat:@"%i", self.user.followersCount];
     self.followingCountLabel.text = [NSString stringWithFormat:@"%i", self.user.followingCount];
     
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+    [[APIManager shared] getUserTimelineWithUserId:self.user.userID completion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"Successfully loaded %@'s timeline", self.user.name);
             self.tweets = tweets;
