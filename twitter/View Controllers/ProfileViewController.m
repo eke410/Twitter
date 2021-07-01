@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *followersCountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tweets;
+@property (strong, nonatomic) UIColor *navBarColor;
 
 @end
 
@@ -55,6 +56,9 @@
             NSLog(@"Error getting %@'s timeline: %@", self.user.name, error.localizedDescription);
         }
     }];
+    
+    self.navBarColor = self.navigationController.navigationBar.barTintColor;
+    [self.navigationController.navigationBar setBarTintColor: [UIColor colorNamed:@"white"]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -75,6 +79,10 @@
     } else {
         return [UITableViewCell new];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController.navigationBar setBarTintColor: self.navBarColor];
 }
 
 /*
