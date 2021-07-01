@@ -27,9 +27,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.view bringSubviewToFront:self.profileImageView];
     [self.profileImageView setImageWithURL:[NSURL URLWithString:self.user.profilePictureString]];
     [self.backdropImageView setImageWithURL:[NSURL URLWithString:self.user.backdropPictureString]];
-
+    self.profileImageView.layer.borderColor = UIColor.whiteColor.CGColor;
+    
     self.usernameLabel.text = self.user.name;
     self.screenNameLabel.text = [@"@" stringByAppendingString:self.user.screenName];
     self.profileDescriptionLabel.text = self.user.profileDescription;
