@@ -196,7 +196,7 @@
                             <constraint firstItem="ll1-D5-XlH" firstAttribute="top" secondItem="ugE-Ul-H9I" secondAttribute="top" id="8Zn-GH-vrU"/>
                             <constraint firstItem="ugE-Ul-H9I" firstAttribute="bottom" secondItem="4h1-mW-gEU" secondAttribute="bottom" constant="24" id="Jcs-qd-ysi"/>
                             <constraint firstItem="ll1-D5-XlH" firstAttribute="leading" secondItem="ugE-Ul-H9I" secondAttribute="leading" id="p7n-gR-tqZ"/>
-                            <constraint firstItem="ll1-D5-XlH" firstAttribute="bottom" secondItem="ugE-Ul-H9I" secondAttribute="bottom" id="reg-iQ-v0p"/>
+                            <constraint firstItem="ll1-D5-XlH" firstAttribute="bottom" secondItem="qax-2F-Vhk" secondAttribute="bottom" id="reg-iQ-v0p"/>
                             <constraint firstItem="ll1-D5-XlH" firstAttribute="trailing" secondItem="ugE-Ul-H9I" secondAttribute="trailing" id="weL-tz-ehr"/>
                         </constraints>
                     </view>
@@ -405,19 +405,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Enter text here!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-YD-esf">
-                                <rect key="frame" x="16" y="72" width="343" height="42.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="24" y="80" width="327" height="543"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mYK-4J-1v6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.73995906114578247" green="0.86163526773452759" blue="0.93586486577987671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OQe-YD-esf" firstAttribute="leading" secondItem="mYK-4J-1v6" secondAttribute="leading" constant="16" id="3jP-yw-2i0"/>
-                            <constraint firstItem="OQe-YD-esf" firstAttribute="trailing" secondItem="mYK-4J-1v6" secondAttribute="trailing" constant="-16" id="7cf-pq-jgl"/>
-                            <constraint firstItem="OQe-YD-esf" firstAttribute="top" secondItem="mYK-4J-1v6" secondAttribute="top" constant="16" id="sMZ-BS-eNM"/>
+                            <constraint firstAttribute="bottom" secondItem="OQe-YD-esf" secondAttribute="bottom" constant="24" id="N8x-Ae-xas"/>
+                            <constraint firstItem="OQe-YD-esf" firstAttribute="leading" secondItem="mYK-4J-1v6" secondAttribute="leading" constant="24" id="o0u-bw-Emw"/>
+                            <constraint firstItem="OQe-YD-esf" firstAttribute="top" secondItem="mYK-4J-1v6" secondAttribute="top" constant="24" id="oo1-gN-vJk"/>
+                            <constraint firstItem="mYK-4J-1v6" firstAttribute="trailing" secondItem="OQe-YD-esf" secondAttribute="trailing" constant="24" id="xTR-R9-gks"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lLg-8n-ZuQ">

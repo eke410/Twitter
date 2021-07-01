@@ -22,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tweetButton.layer.cornerRadius = 15;
+    self.textViewLabel.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
     
 }
 
