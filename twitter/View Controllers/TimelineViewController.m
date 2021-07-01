@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIButton *composeTweetButton;
 
 @end
 
@@ -98,7 +99,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    if ([sender isKindOfClass:[UIBarButtonItem class]]) {
+    if ([sender isKindOfClass:[UIButton class]]) {
         // compose tweet button clicked
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
