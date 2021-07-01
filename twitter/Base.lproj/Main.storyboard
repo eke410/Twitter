@@ -183,6 +183,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="MOc-fV-EZE">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="x6n-39-2gr">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="didTapLogout:" destination="Lbl-k5-U4i" id="ZZ2-6f-B2X"/>
                             </connections>
@@ -366,6 +367,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytz-Ev-cUB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.083028130233287811" green="0.5703730583190918" blue="0.76485496759414673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
