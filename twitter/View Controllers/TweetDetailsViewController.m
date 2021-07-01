@@ -37,7 +37,7 @@
 }
 
 - (void)refreshData {
-    NSString *URLString = self.tweet.user.profilePicture;
+    NSString *URLString = self.tweet.user.profilePictureString;
     NSURL *url = [NSURL URLWithString:URLString];
     [self.profileImageView setImageWithURL:url];
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;;

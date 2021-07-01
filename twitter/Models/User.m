@@ -15,8 +15,11 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
-        self.profilePicture = [dictionary[@"profile_image_url_https"] stringByReplacingOccurrencesOfString:@"_normal" withString:@""];
-        // Initialize any other properties
+        self.profileDescription = dictionary[@"description"];
+        self.profilePictureString = [dictionary[@"profile_image_url_https"] stringByReplacingOccurrencesOfString:@"_normal" withString:@""];
+        self.backdropPictureString = dictionary[@"profile_banner_url"];
+        self.followingCount = [dictionary[@"friends_count"] intValue];
+        self.followersCount = [dictionary[@"followers_count"] intValue];
     }
     return self;
 }

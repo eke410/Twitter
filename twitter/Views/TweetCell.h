@@ -11,6 +11,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol TweetCellDelegate;
+
 @interface TweetCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -20,11 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
-
 @property (strong, nonatomic) Tweet *tweet;
-
+@property (nonatomic, weak) id<TweetCellDelegate> delegate;
 - (void) refreshData;
 
+@end
+
+@protocol TweetCellDelegate
+- (void)tweetCell:(TweetCell *) tweetCell didTap: (User *)user;
 @end
 
 NS_ASSUME_NONNULL_END

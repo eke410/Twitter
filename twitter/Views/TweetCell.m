@@ -16,6 +16,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
+    [self.profileImageView addGestureRecognizer:profileTapGestureRecognizer];
+    [self.profileImageView setUserInteractionEnabled:YES];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -79,7 +83,7 @@
 }
 
 - (void)refreshData {
-    NSString *URLString = self.tweet.user.profilePicture;
+    NSString *URLString = self.tweet.user.profilePictureString;
     NSURL *url = [NSURL URLWithString:URLString];
     [self.profileImageView setImageWithURL:url];
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;;
@@ -95,6 +99,10 @@
     
     self.tweet.favorited ? [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal] : [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
     self.tweet.retweeted ? [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal] : [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
+}
+
+- (void) didTapUserProfile:(UITapGestureRecognizer *)sender{
+    [self.delegate tweetCell:self didTap:self.tweet.user];
 }
 
 @end

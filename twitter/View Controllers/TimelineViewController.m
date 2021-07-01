@@ -14,10 +14,11 @@
 #import "Tweet.h"
 #import "ComposeViewController.h"
 #import "TweetDetailsViewController.h"
+#import "ProfileViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "DateTools.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, TweetCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -79,6 +80,7 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     cell.tweet = tweet;
+    cell.delegate = self;
     [cell refreshData];
     return cell;
 }
@@ -86,6 +88,10 @@
 - (void)didTweet:(Tweet *)tweet {
     [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];
+}
+
+- (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
+    [self performSegueWithIdentifier:@"profileSegue" sender:user];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -110,8 +116,11 @@
         Tweet *tweet = self.arrayOfTweets[indexPath.row];
         TweetDetailsViewController *tweetDetailsViewController = [segue destinationViewController];
         tweetDetailsViewController.tweet = tweet;
+    } else if ([segue.identifier isEqualToString:@"profileSegue"]) {
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        profileViewController.user = sender;
     }
-    
+
 }
 
 
