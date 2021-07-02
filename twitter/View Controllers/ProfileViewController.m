@@ -34,7 +34,23 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    if (self.user) {
+        // user passed in
+        [self refreshData];
+        
+    } else {
+        // user not passed in, should show own info
+        NSLog(@"coming from tab");
+        [[APIManager shared] getLoggedInUserWithCompletion:^(User *user, NSError *error) {
+            self.user = user;
+            [self refreshData];
+            [self.view setAlpha:1];
+        }];
+    }
+}
 
+- (void)refreshData {
     [self.view bringSubviewToFront:self.profileImageView];
     [self.profileImageView setImageWithURL:[NSURL URLWithString:self.user.profilePictureString]];
     [self.backdropImageView setImageWithURL:[NSURL URLWithString:self.user.backdropPictureString]];

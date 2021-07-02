@@ -385,7 +385,7 @@
             </objects>
             <point key="canvasLocation" x="3399.1999999999998" y="35.532233883058474"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--My Profile-->
         <scene sceneID="fLT-0k-3Jc">
             <objects>
                 <viewController id="b64-Kk-56x" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -612,7 +612,7 @@
                             <constraint firstItem="7Lq-xg-644" firstAttribute="centerY" secondItem="nHz-5t-LmJ" secondAttribute="bottom" id="znn-yY-Vfi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="l5r-58-wnr"/>
+                    <navigationItem key="navigationItem" title="My Profile" id="l5r-58-wnr"/>
                     <connections>
                         <outlet property="backdropImageView" destination="nHz-5t-LmJ" id="o85-VU-oFB"/>
                         <outlet property="followersCountLabel" destination="fcx-XB-tLg" id="Hvw-Ru-dbl"/>
@@ -626,13 +626,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ni-ZJ-67N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3338" y="869"/>
+            <point key="canvasLocation" x="3399" y="869"/>
         </scene>
         <!--Home-->
         <scene sceneID="WUT-Ke-VeR">
             <objects>
                 <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="FTQ-G1-N2b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="jEY-ao-FgL"/>
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="home-icon" id="jEY-ao-FgL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytz-Ev-cUB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
@@ -659,7 +659,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Enter text here!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-YD-esf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-YD-esf">
                                 <rect key="frame" x="24" y="80" width="327" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -748,36 +748,11 @@
             </objects>
             <point key="canvasLocation" x="1010" y="36"/>
         </scene>
-        <!--Temp View Controller-->
-        <scene sceneID="uI2-0R-Dwh">
-            <objects>
-                <viewController id="TyM-uw-fth" customClass="TempViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RPw-EG-Nz7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWu-sR-hUf">
-                                <rect key="frame" x="192" y="327" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="b64-Kk-56x" kind="show" identifier="profileSegue" id="V0x-fi-uTR"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="9yA-6E-d6F"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="HuH-iK-wuO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m9y-Y5-AhT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2570" y="869"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="S4j-Z2-VB2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GYU-Is-JmG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="HiT-Q1-JcF"/>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="profile-Icon" id="HiT-Q1-JcF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uhb-CJ-Eqj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
@@ -785,7 +760,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="TyM-uw-fth" kind="relationship" relationship="rootViewController" id="1fX-9l-umj"/>
+                        <segue destination="b64-Kk-56x" kind="relationship" relationship="rootViewController" id="8Rh-E8-KOt"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0p-Ne-5VM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -794,13 +769,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="V0x-fi-uTR"/>
+        <segue reference="8Rh-E8-KOt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="compose-tweet-button" width="109" height="109"/>
         <image name="favor-icon" width="30" height="30"/>
+        <image name="home-icon" width="30" height="30"/>
         <image name="none" width="128" height="128"/>
+        <image name="profile-Icon" width="26" height="26"/>
         <image name="retweet-icon" width="30" height="30"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
