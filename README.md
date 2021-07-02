@@ -48,8 +48,9 @@ Here's a walkthrough of implemented user stories:
 ![](https://i.imgur.com/AMvNbqA.gif)
 ![](https://i.imgur.com/fqMZiOA.gif)
 ![](https://i.imgur.com/Xi1Wk9G.gif)
-![](https://i.imgur.com/aDcq7ba.gif)
 ![](https://i.imgur.com/c16iQIm.gif)
+
+Last gif (too big to display): https://i.imgur.com/aDcq7ba.gif
 
 GIFs created with [ezgif](https://ezgif.com/video-to-gif).
 
