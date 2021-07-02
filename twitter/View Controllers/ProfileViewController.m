@@ -56,9 +56,6 @@
             NSLog(@"Error getting %@'s timeline: %@", self.user.name, error.localizedDescription);
         }
     }];
-    
-    self.navBarColor = self.navigationController.navigationBar.barTintColor;
-    [self.navigationController.navigationBar setBarTintColor: [UIColor colorNamed:@"white"]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -79,6 +76,11 @@
     } else {
         return [UITableViewCell new];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navBarColor = self.navigationController.navigationBar.barTintColor;
+    [self.navigationController.navigationBar setBarTintColor: [UIColor colorNamed:@"white"]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
