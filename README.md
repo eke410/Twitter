@@ -38,20 +38,28 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Better way to implement profile tab bar (mine was not ideal)
+2. How to implement the tab selection bar that Twitter has on its profile pages. (their labels are Tweets, Tweets & replies, Media, Likes, etc.)
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![](https://i.imgur.com/Mz2XClG.gif)
+![](https://i.imgur.com/c3fQK8m.gif)
+![](https://i.imgur.com/U1hBoDv.gif)
+![](https://i.imgur.com/EdyLQK8.gif)
+![](https://i.imgur.com/UBOV2G0.gif)
 
-GIF created with [Kap](https://getkap.co/).
+GIFs created with [ezgif](https://ezgif.com/video-to-gif).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+- understanding/using delegates and API calls at first
+- writing new API requests
+- incorporating outside libraries
 
 ## Credits
 
