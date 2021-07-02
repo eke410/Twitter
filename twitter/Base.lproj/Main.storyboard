@@ -632,7 +632,7 @@
         <scene sceneID="WUT-Ke-VeR">
             <objects>
                 <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="FTQ-G1-N2b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" selectedImage="home-icon" id="jEY-ao-FgL"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-icon" selectedImage="home-icon" id="jEY-ao-FgL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytz-Ev-cUB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
@@ -752,7 +752,7 @@
         <scene sceneID="S4j-Z2-VB2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GYU-Is-JmG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="profile-Icon" id="HiT-Q1-JcF"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-Icon" selectedImage="profile-Icon" id="HiT-Q1-JcF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uhb-CJ-Eqj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
