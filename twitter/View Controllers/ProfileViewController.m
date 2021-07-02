@@ -40,8 +40,7 @@
         [self refreshData];
         
     } else {
-        // user not passed in, should show own info
-        NSLog(@"coming from tab");
+        // user not passed in, should make API call and show own info
         [[APIManager shared] getLoggedInUserWithCompletion:^(User *user, NSError *error) {
             self.user = user;
             [self refreshData];
