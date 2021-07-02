@@ -45,11 +45,11 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-![](https://i.imgur.com/Mz2XClG.gif)
-![](https://i.imgur.com/c3fQK8m.gif)
-![](https://i.imgur.com/U1hBoDv.gif)
-![](https://i.imgur.com/EdyLQK8.gif)
-![](https://i.imgur.com/UBOV2G0.gif)
+![](https://i.imgur.com/AMvNbqA.gif)
+![](https://i.imgur.com/fqMZiOA.gif)
+![](https://i.imgur.com/Xi1Wk9G.gif)
+![](https://i.imgur.com/aDcq7ba.gif)
+![](https://i.imgur.com/c16iQIm.gif)
 
 GIFs created with [ezgif](https://ezgif.com/video-to-gif).
 
